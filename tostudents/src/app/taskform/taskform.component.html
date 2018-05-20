@@ -11,13 +11,24 @@
       type="text"
       placeholder="title"
       name="titel"
+      minlength="3"
+      maxlength="30"
+      required
+      #titleInput="ngModel"
 
   />
   <!-- Markup for error messages...-->
-  <div class="error hide">
-    Task title is required!
+  <div class="error" *ngIf="titleInput.errors && (titleInput.dirty || titleInput.touched)">
+    <div *ngIf="titleInput.errors.required">
+      title required
+    </div>
+    <div *ngIf="titleInput.errors.minlength">
+      title must be at least 3 characters
+    </div>
+    <div *ngIf="titleInput.errors.maxlength">
+      title must be at most 30 characters
+    </div>
   </div>
-
   <!-- Apply ngModel to this input... -->
   <input
     [(ngModel)]="task.description"
@@ -29,9 +40,10 @@
   />
 
   <!-- Disable button if form is invalid. -->
-  <button type="submit" (click)="addNewTask()">
-      Save
+  <button type="submit" (click)="addNewTask()" [disabled]="titleInput.errors">
+    Save
   </button>
+
 </form>
 
 </div>
