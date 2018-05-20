@@ -1,0 +1,33 @@
+<div class="board">
+
+  <!-- Add click event binding for this button... -->
+
+  <button (click)="newTask()"
+          style="margin: 20px 0"
+  >
+    New Task
+  </button>
+  <div ng-hide= this.formShow>
+<task-form></task-form>
+</div>
+  <div class="lists">
+    <div *ngFor="let statusType of statusTypes">
+      <task-list [taskList]="filterTasks(statusType, taskList)" [statusType]="statusType">
+      </task-list>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--
+<button (click)="addMockTask()"
+        style="margin: 20px 0"
+>
+  New Task
+</button>
+
+-->
+

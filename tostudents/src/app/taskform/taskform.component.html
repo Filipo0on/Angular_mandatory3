@@ -1,0 +1,37 @@
+<!-- Add event binding for form submit... -->
+<div ng-hide="true">
+<form
+  style="margin-bottom: 10px"
+  >
+
+  <!-- Apply ngModel to this input... -->
+  <input
+      [(ngModel)]="task.title"
+      class="input"
+      type="text"
+      placeholder="title"
+      name="titel"
+
+  />
+  <!-- Markup for error messages...-->
+  <div class="error hide">
+    Task title is required!
+  </div>
+
+  <!-- Apply ngModel to this input... -->
+  <input
+    [(ngModel)]="task.description"
+      class="input"
+      type="text"
+      placeholder="description"
+    name="description"
+
+  />
+
+  <!-- Disable button if form is invalid. -->
+  <button type="submit" (click)="addNewTask()">
+      Save
+  </button>
+</form>
+
+</div>

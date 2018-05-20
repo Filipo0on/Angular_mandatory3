@@ -1,0 +1,35 @@
+<div class="task">
+  <div class="header">
+      <div>
+        <!-- Render title here... -->
+        {{ task.title }}
+
+      </div>
+      <!-- Markup for dropdown menu here... -->
+    <select [(ngModel)]="chosenMod" (ngModelChange)="UpdateATask()" id="selectid" class="form-control-mb-12">
+      <option value="" disabled selected>{{task.status}}
+      <option value="1">NotStarted</option>
+      <option value="2">InProgress</option>
+      <option value="3">Completed</option>
+    </select>
+
+
+
+
+
+  </div>
+  <hr>
+  <div class="body">
+      <!-- Render description here... -->
+    {{ task.description }}
+
+
+  </div>
+</div>
+
+
+
+<!--
+<button (click)="updateTheTask()">notstarted</button>
+<button (click)="updateTheTask2()">InProgress</button>
+<button (click)="updateTheTask3()">Completed</button>-->
