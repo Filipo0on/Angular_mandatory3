@@ -8,7 +8,7 @@ import { Task, StatusType } from '../constants';
   styleUrls: ['./taskboard.component.css']
 })
 export class TaskboardComponent {
-  showForm: boolean;
+  showForm = false;
   taskList: Task[] = [];
   statusTypes: StatusType[] = [
     StatusType.NotStarted, StatusType.InProgress, StatusType.Completed
@@ -17,7 +17,7 @@ export class TaskboardComponent {
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
-    this.showForm = false;
+
     this.taskService.getTasks()
       .subscribe((tasks) => {
         this.taskList = tasks;
@@ -28,10 +28,7 @@ export class TaskboardComponent {
     return this.taskService.filterTasks(statusType, taskList);
   }
 
-  newTask() {
-    this.showForm = !this.showForm;
 
-  }
 }
 
 

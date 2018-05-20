@@ -2,12 +2,12 @@
 
   <!-- Add click event binding for this button... -->
 
-  <button (click)="newTask()"
+  <button (click)="showForm = !showForm"
           style="margin: 20px 0"
   >
     New Task
   </button>
-  <div ng-hide= this.formShow>
+  <div *ngIf="showForm">
 <task-form></task-form>
 </div>
   <div class="lists">
@@ -20,14 +20,4 @@
 
 
 
-
-
-<!--
-<button (click)="addMockTask()"
-        style="margin: 20px 0"
->
-  New Task
-</button>
-
--->
 

@@ -13,8 +13,6 @@ export class TasklistComponent {
 
   constructor() {}
 
-  ngOnInit() {
-  }
 }
 
 
